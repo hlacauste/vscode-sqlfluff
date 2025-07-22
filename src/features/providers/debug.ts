@@ -59,7 +59,7 @@ export default class Debug {
       const stdout: Buffer[] = [];
       const stderrLines: string[] = [];
 
-      const command = "dir";
+      const command = process.platform === 'win32' ? 'dir' : 'ls';
       const args: any[] = [];
       const shell = Configuration.shell();
       const environmentVariables = Configuration.environmentVariables(process.env);
@@ -121,7 +121,7 @@ export default class Debug {
       const stderrLines: string[] = [];
       let stdoutLines: string[];
 
-      const command = "where";
+      const command = process.platform === 'win32' ? 'where' : 'which';
       const args: any[] = ["sqlfluff"];
       const shell = Configuration.shell();
       const environmentVariables = Configuration.environmentVariables(process.env);
